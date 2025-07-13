@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    typedRoutes: true,
+    typedRoutes: false, // Disabled until routes are created
   },
   transpilePackages: ['gsap'],
   images: {

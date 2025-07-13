@@ -1,103 +1,167 @@
-import Image from "next/image";
+import Link from "next/link";
+import NavBar from "@/components/NavBar";
+import HeroSection from "@/components/Static/HeroSection";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  return (
+    <>
+      {/* Header with Navigation */}
+      <NavBar />
+      <div className="gradient-hero">
+        <div className="noise"></div>
+      </div>
+      {/* Main Content */}
+
+      <main className="pt-16"> {/* Add padding-top for fixed navbar */}
+        {/* Hero Section */}
+        <HeroSection />
+
+        {/* Features Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <header className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Why Choose TribeVibe?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover amazing features that make connecting with your community effortless
+              </p>
+            </header>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <article className="text-center p-6 bg-white rounded-lg shadow-md">
+                <div className="text-4xl mb-4">👥</div>
+                <h3 className="text-xl font-semibold mb-2">Find Your People</h3>
+                <p className="text-gray-600">
+                  Connect with groups that share your interests and passions
+                </p>
+              </article>
+              
+              <article className="text-center p-6 bg-white rounded-lg shadow-md">
+                <div className="text-4xl mb-4">📅</div>
+                <h3 className="text-xl font-semibold mb-2">Join Events</h3>
+                <p className="text-gray-600">
+                  Participate in exciting activities and meet new friends
+                </p>
+              </article>
+              
+              <article className="text-center p-6 bg-white rounded-lg shadow-md">
+                <div className="text-4xl mb-4">🌟</div>
+                <h3 className="text-xl font-semibold mb-2">Create Memories</h3>
+                <p className="text-gray-600">
+                  Share experiences and build lasting relationships
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className="py-16 bg-blue-600 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Find Your Tribe?
+            </h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Join thousands of people who have already found their community on TribeVibe
+            </p>
+            <Link 
+              href="/signup" 
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+            >
+              Get Started Today
+            </Link>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">TribeVibe</h3>
+              <p className="text-gray-400 mb-4">
+                Connecting communities, one group at a time.
+              </p>
+              <div className="flex space-x-4">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  Facebook
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  Twitter
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  Instagram
+                </Link>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <nav className="flex flex-col space-y-2">
+                <Link href="/groups" className="text-gray-400 hover:text-white transition-colors">
+                  Browse Groups
+                </Link>
+                <Link href="/events" className="text-gray-400 hover:text-white transition-colors">
+                  Find Events
+                </Link>
+                <Link href="/create-group" className="text-gray-400 hover:text-white transition-colors">
+                  Create Group
+                </Link>
+                <Link href="/how-it-works" className="text-gray-400 hover:text-white transition-colors">
+                  How It Works
+                </Link>
+              </nav>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Support</h3>
+              <nav className="flex flex-col space-y-2">
+                <Link href="/help" className="text-gray-400 hover:text-white transition-colors">
+                  Help Center
+                </Link>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                  Contact Us
+                </Link>
+                <Link href="/community-guidelines" className="text-gray-400 hover:text-white transition-colors">
+                  Community Guidelines
+                </Link>
+                <Link href="/safety" className="text-gray-400 hover:text-white transition-colors">
+                  Safety
+                </Link>
+              </nav>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Legal</h3>
+              <nav className="flex flex-col space-y-2">
+                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+                <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors">
+                  Cookie Policy
+                </Link>
+              </nav>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+            <p className="text-gray-400">
+              © {new Date().getFullYear()} TribeVibe. All rights reserved.
+            </p>
+          </div>
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
